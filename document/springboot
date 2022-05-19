@@ -3,10 +3,47 @@ SpringApplication
 new SpringApplication().run();
 
 this.resourceLoader = null
+
 this.primarySource = LinkedHashSet  启动类，例如xxxApplication.class
+
 this.webApplicationType = webApplicationType是一个枚举提供none servlet reactive
 none： application不会作为web应用来执行， 也不会作为嵌入式的web服务来启动
 servlet： application会作为一个基于servlet的web应用来执行，也会作为一个嵌入式的web服务来启动
 reactive： application会作为一个响应式的web应用来执行，也会作为一个嵌入式响应web服务来启动
+
+none类型启动项目会自动停止
+servlet为springboot启动的通常类型
+reactive 暂未理解
+
+ClassUtils：
+
+if(isPresent("dispatchHandler",null) && ！isPresent("dispatchServlet",null) && ！isPresent("servletContainer",null)){
+    return reactive;
+}
+for(String className:"javax.servlet.servlet, configureableWebApplicationContext"){
+    if(!className.isPresent){
+        return none;
+    }
+}
+return servlet;
+
+isPresent(className,classLoad){
+    if(classLoad == null){
+        classLoad = Thread.currentThread.getContextClassLoad;
+        if(classLoad == null){
+            classLoad = ClassUtils.class.getClassLoad;
+            if(classLoad == null){
+                classLoad = systemClassLoad;
+            }
+        }
+    }
+    return class.forName(className,classLoad);
+}
+
+
+
+
+
+
 this.bootstrapRegistryInitalizers
 this.mainApplicationClass0
