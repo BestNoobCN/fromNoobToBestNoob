@@ -1,0 +1,12 @@
+SpringApplication
+
+new SpringApplication().run();
+
+this.resourceLoader = null
+this.primarySource = LinkedHashSet  启动类，例如xxxApplication.class
+this.webApplicationType = webApplicationType是一个枚举提供none servlet reactive
+none： application不会作为web应用来执行， 也不会作为嵌入式的web服务来启动
+servlet： application会作为一个基于servlet的web应用来执行，也会作为一个嵌入式的web服务来启动
+reactive： application会作为一个响应式的web应用来执行，也会作为一个嵌入式响应web服务来启动
+this.bootstrapRegistryInitalizers
+this.mainApplicationClass0
