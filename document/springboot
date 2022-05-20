@@ -41,9 +41,11 @@ isPresent(className,classLoad){
 }
 
 
-
-
-
-
 this.bootstrapRegistryInitalizers
-this.mainApplicationClass0
+
+
+this.initilalizers
+
+this.listeners
+
+this.mainApplicationClass
